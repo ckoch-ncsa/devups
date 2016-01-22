@@ -1,12 +1,29 @@
 defmodule Devups do
   defmodule Fibonacci do
 
-    def doIt(steps) do
+    def fib(0) do 0 end
+    def fib(1) do 1 end
+    def fib(n) do
+      fib(n-1) + fib(n-2)
+    end
+  end
 
+# defmodule Devups do
+  defmodule TailCallFib do
+    def fib(0, _, accumulator) do
+      accumulator
     end
 
-    def start(steps) do
-      2
+    def fib(n, previous, accumulator) do
+      IO.puts n
+      IO.puts previous
+      IO.puts accumulator
+      IO.puts "********************"
+      fib(n-1, previous + accumulator, previous)
+    end
+
+    def fib(n) do
+      fib(n, 1, 0)
     end
   end
 end
