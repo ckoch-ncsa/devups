@@ -117,8 +117,14 @@ defmodule DevupsTest do
   end
 
   defmodule MakingChange do
+    use ExUnit.Case
 
+    test "one penny == [1]" do
+      assert Devups.MakingChange.execute(1) == [1]
+    end
 
-
+    test "2 pennies == [1,1]" do
+      assert Devups.MakingChange.execute(2) == [1,1]
+    end
   end
 end
