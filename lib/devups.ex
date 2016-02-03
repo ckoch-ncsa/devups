@@ -15,10 +15,6 @@ defmodule Devups do
     end
 
     def fib(n, previous, accumulator) do
-      # IO.puts n
-      # IO.puts previous
-      # IO.puts accumulator
-      # IO.puts "********************"
       fib(n-1, previous + accumulator, previous)
     end
 
@@ -29,11 +25,19 @@ defmodule Devups do
 
   defmodule MakingChange do
     def execute(n) do
-      [n]
+      Enum.map(coins, &countCoins(n, &1, []))
     end
 
-    def countCoins(n) do
-
+    def countCoins(n, coin, accum) do
+      if (n - coin) >= 0 do
+        accum = List.flatten([accum, coin])
+        n = n - coin
+        if n == 0 do
+          accum
+        else
+          countCoins(n, coin, accum)
+        end
+      end
     end
 
     def coins do

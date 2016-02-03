@@ -126,5 +126,9 @@ defmodule DevupsTest do
     test "2 pennies == [1,1]" do
       assert Devups.MakingChange.execute(2) == [1,1]
     end
+
+    test "5 pennies == [5]" do
+      assert Devups.MakingChange.execute(5) == [5]
+    end
   end
 end
