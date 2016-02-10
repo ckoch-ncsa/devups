@@ -120,15 +120,31 @@ defmodule DevupsTest do
     use ExUnit.Case
 
     test "one penny == [1]" do
-      assert Devups.MakingChange.execute(1) == [1]
+      assert Main.MakingChange.execute(1) == [1]
     end
 
     test "2 pennies == [1,1]" do
-      assert Devups.MakingChange.execute(2) == [1,1]
+      assert Main.MakingChange.execute(2) == [1,1]
     end
 
     test "5 pennies == [5]" do
-      assert Devups.MakingChange.execute(5) == [5]
+      assert Main.MakingChange.execute(5) == [5]
+    end
+
+    test "11 pennies == [10,1]" do
+      assert Main.MakingChange.execute(11) == [10,1]
+    end
+
+    test "75 pennies == [25,25,25]" do
+      assert Main.MakingChange.execute(75) == [25,25,25]
+    end
+
+    test "143 pennies == [5]" do
+      assert Main.MakingChange.execute(143) == [25,25,25,25,25,10,5,1,1,1]
+    end
+
+    test "324 pennies == [5]" do
+      assert Main.MakingChange.execute(319) == [25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 10, 5, 1, 1, 1, 1]
     end
   end
 end
