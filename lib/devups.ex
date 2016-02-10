@@ -22,6 +22,7 @@ defmodule Devups do
     end
   end
 end
+
 defmodule Main do
   defmodule MakingChange do
     def makeCoins(quantity, denom) do
@@ -47,28 +48,4 @@ defmodule Main do
       makeChange(rem(amount, coin), coinValues, change)
     end
   end
-
-  # defmodule MakingChange do
-  #   def execute(n) do
-  #     Enum.map(coins[head | tail], &makeChange(n, &1, []))
-  #   end
-
-  #   def coins do
-  #     [25,10,5,1]
-  #   end
-
-  #   def makeCoins(accumulator, denomination) do
-  #     List.insert_at(accumulator, -1, denomination)
-  #     # Enum.map((1..quantity), fn(_) -> denomination end)
-  #   end
-
-  #   def makeChange(0, coin, accumulator) do
-  #     makeCoins(accumulator, coin)
-  #   end
-
-  #   def makeChange(n, coin, accumulator) do
-  #     if n-coin >= 0 do makeChange(n-coin, coin, makeCoins(accumulator, coin)) end
-  #     # makeChange(n-coin, coin, accumulator)
-  #   end
-  # end
 end
